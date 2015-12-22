@@ -19,8 +19,10 @@ public class ReceiverTCP {
 			scanner = new Scanner(socket.getInputStream());
 			while (scanner.hasNext()) {
 				String message = scanner.nextLine();
+				System.out.println("> Message reçu :");
 				System.out.println(message);
 			}
+			System.out.println(">> La connexion a été fermée !");
 			scanner.close();
 			serverSocket.close();
 			socket.close();

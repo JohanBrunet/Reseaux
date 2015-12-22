@@ -20,13 +20,17 @@ public class SenderTCP {
 			hostAddress = InetAddress.getLocalHost();
 			s = new Socket(hostAddress, port);
 			output = new PrintStream(s.getOutputStream());
-			while (true){
+			while (scan.hasNext()){
+				System.out.println("> ");
 				msg = scan.nextLine();
 				output.println(msg);
 			}
+			scan.close();
+			output.close();
+			s.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println(">> La connexion a échoué !");
 		}
-		scan.close();
 	}	
 }
